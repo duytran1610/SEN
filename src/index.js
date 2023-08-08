@@ -18,6 +18,9 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
+// override request method POST 
+//app.use(methodOverride('_method'));
+
 // connect DB
 connectDB();
 

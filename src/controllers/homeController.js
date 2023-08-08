@@ -1,6 +1,6 @@
 import db from "../models";
 
-const getHomePage = async (req, res) => {
+let getHomePage = async (req, res) => {
     try {
         let data = await db.User.findAll();
         //console.log(data);
@@ -13,4 +13,6 @@ const getHomePage = async (req, res) => {
     }
 }
 
-export default {getHomePage};
+export default {
+    getHomePage
+};

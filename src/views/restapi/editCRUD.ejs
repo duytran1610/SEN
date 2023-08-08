@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REST API</title>
+    <title>EDIT USER</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
@@ -19,39 +19,28 @@
 <body>
     <div class="contanier">
         <div class="row ml-4">
-            <form action="/restapi/post-crud" method="POST">
+            <form action="/restapi/put-crud/<%= data.id %>?_method=PUT" method="POST">
                 <div class="form-row">
-                    <div class="col-12 mt-3">Create a new user</div>
-                    <div class="form-group col-6">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                    </div>
-                    <div class="form-group col-6">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                    </div>
-                </div>
-
-                <div class="form-row">
+                    <div class="col-12 mt-3"><b>Edit User</b></div>
                     <div class="form-group col-6">
                         <label>First Name</label>
-                        <input type="text" class="form-control" name="firstName">
+                        <input type="text" class="form-control" name="firstName" value="<%= data.firstName %>">
                     </div>
                     <div class="form-group col-6">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" name="lastName">
+                        <input type="text" class="form-control" name="lastName" value="<%= data.lastName %>">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>Address</label>
-                    <input type="text" class="form-control" name="address">
+                    <input type="text" class="form-control" name="address" value="<%= data.address %>">
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-6">
                         <label>Phone</label>
-                        <input type="text" class="form-control" name="phone">
+                        <input type="text" class="form-control" name="phone" value="<%= data.phone %>">
                     </div>
                     <div class="form-group col-3">
                         <label>Sex</label>
@@ -64,13 +53,13 @@
                         <label>Role</label>
                         <select class="form-control" name="role">
                             <option value="R1">Admin</option>
-                            <option value="R2">Doctor</option>
+                            <option value="R2" selected>Doctor</option>
                             <option value="R3">Patient</option>
                         </select>
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                <button type="submit" class="btn btn-primary">Save</button>
             </form>
         </div>
     </div>

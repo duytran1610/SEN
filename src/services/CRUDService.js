@@ -44,8 +44,54 @@ let getAllUser = () => {
         }
     })
 }
+
+// get user by id
+let getUserInfoById = (id) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let user = await db.User.findByPk(id);
+            resolve(user);
+        }
+        catch(e) {
+            reject(e);
+        }
+    })
+}
+
+// update user info
+let updateUserInfo = (user, userID) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            await db.User.update(user, {
+                where: {
+                    id: userID
+                }
+            })
+            resolve('Update succeed!');
+        }
+        catch(e) {
+            reject(e);
+        }
+    })
+}
+
+// delete user
+let deleteUser = (id) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            await db.User.destroy({where: {id: id}});
+            resolve();
+        }
+        catch(e) {
+            reject(e);
+        }
+    })
+}
  
 export default {
     createNewUser,
-    getAllUser
+    getAllUser,
+    getUserInfoById,
+    updateUserInfo,
+    deleteUser
 }

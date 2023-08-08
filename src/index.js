@@ -2,6 +2,7 @@ import express from "express";
 import viewEngine from "./config/configViewEngine.js";
 import Route from "./routes/web.js";
 import connectDB from "./config/connectDB.js";
+import methodOverride from "method-override";
 
 // run file .env
 import { config } from "dotenv";
@@ -18,8 +19,8 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
-// override request method POST 
-//app.use(methodOverride('_method'));
+// override request method POST (override with POST having ?_method=DELETE)
+app.use(methodOverride('_method'));
 
 // connect DB
 connectDB();

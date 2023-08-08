@@ -1,6 +1,6 @@
 import CRUDService from "../services/CRUDService";
 
-let getCRUD = (req, res) => {
+let showForm = (req, res) => {
     return res.render('restapi/crud.ejs');
 }
 
@@ -10,7 +10,15 @@ let postCRUD = async (req, res) => {
     return res.send('form server');
 }
 
+let getCRUD = async (req, res) => {
+    let data = await CRUDService.getAllUser();
+    return res.render('restapi/getCRUD', {
+        data: data
+    });
+}
+
 export default {
-    getCRUD,
-    postCRUD
+    showForm,
+    postCRUD,
+    getCRUD
 }
